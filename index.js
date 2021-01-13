@@ -1,7 +1,12 @@
 const { response } = require('express')
 const express = require('express')
+var cors = require('cors');
 const app = express()
 const youtubedl = require('youtube-dl')
+
+app.use(cors({
+  origin: 'http://localhost:3000'
+}));
 
 app.get('/fetchVideoInfo', function (req, res) {
   const url = req.query.url;

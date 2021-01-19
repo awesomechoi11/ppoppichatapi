@@ -9,8 +9,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async-each": "^1.0.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "ffcreator": "^1.4.1",
+    "ffcreatorlite": "^1.4.11",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.foreach": "^4.5.0",
+    "lodash.isarray": "^4.0.0",
+    "node-cache": "^5.1.2",
+    "node-storage": "0.0.9",
+    "paralleljs": "^1.1.0",
     "youtube-dl": "^3.1.0"
   }
 }

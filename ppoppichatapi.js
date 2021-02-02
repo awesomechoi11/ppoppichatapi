@@ -12,19 +12,14 @@ var each = require('async-each');
 
 const Parallel = require('paralleljs')
 
+const { createFFTask } = require('./test')
 
 var Storage = require('node-storage');
 var store = new Storage(__dirname + '/storage/fetchedlinks');
 
-// const NodeCache = require("node-cache");
-// const myCache = new NodeCache({
-//   stdTTL: 3600
-// });
+var bodyParser = require('body-parser')
 
-// myCache.on("set", function (key, value) {
-//   // ... do something ...
-//   console.log('cache set!!!', key)
-// });
+app.use(bodyParser.json());
 
 app.use(cors({
   origin: 'http://localhost:3000'
@@ -134,8 +129,10 @@ app.get('/fetchVideoInfo', function (req, res) {
 })
 
 
-app.get('/renderVideo', function (req, res) {
-  console.log(req.data)
+app.post('/renderVideo', function (req, res) {
+  console.log(req.body)
+  //createFFTask()
+  res.sendStatus(200)
 })
 
 

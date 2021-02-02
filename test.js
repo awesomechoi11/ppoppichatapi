@@ -96,7 +96,11 @@ function headersToArray(headers) {
     return OptionArray
 }
 
-const createFFTask = () => {
+const createFFTask = (videoArr) => {
+
+    if (!videoArr) {
+        return null;
+    }
 
     const outputDir = path.join(__dirname, './output/');
     const cacheDir = path.join(__dirname, './cache/');
@@ -117,7 +121,7 @@ const createFFTask = () => {
         fps: fps
     });
     var currTime = 0;
-    tiktokData2.forEach(data => {
+    videoArr.forEach(data => {
 
         const url = data.url
         //const url = 'http://www.localhost:8980'
@@ -202,5 +206,5 @@ const createFFTask = () => {
 
 
 
-createFFTask()
+module.exports = { createFFTask }
 

@@ -121,15 +121,15 @@ const createFFTask = (videoArr) => {
         fps: fps
     });
     var currTime = 0;
-    videoArr.forEach(data => {
+    videoArr.forEach(vid => {
 
-        const url = data.url
+        const url = vid.data.url
         //const url = 'http://www.localhost:8980'
 
-        const duration = data['_duration_raw'];
+        const duration = vid.data['_duration_raw'];
         //const duration = 2.5
 
-        const [x, y, width, height, scale] = fit(dW, dH, Number(data.width), Number(data.height))
+        const [x, y, width, height, scale] = fit(dW, dH, Number(vid.data.width), Number(vid.data.height))
 
         const video = new FFVideo({
             path: url,
@@ -139,7 +139,7 @@ const createFFTask = (videoArr) => {
             h: height,
             fps: fps,
             scale: scale,
-            customOptions: headersToArray(data.http_headers)
+            customOptions: headersToArray(vid.data.http_headers)
         })
         video.setDuration(duration)
 
